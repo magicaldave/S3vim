@@ -47,18 +47,22 @@ load_sources({
 load_colorscheme(vim.g.default_colorscheme)
 load_sources_async({ "base.4-mappings" })
 
-
 -- Apply nerdfonts on startup
 vim.opt.guifont = { "ShureTechMono Nerd Font", ":h14" }
 
 -- Custom binds for font scale in NeoVide
 vim.g.neovide_scale_factor = 1.0
+local scaleFactorBase = 1.1
+local downScaleFactor = 1 / scaleFactorBase
+
 local change_scale_factor = function(delta)
   vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
 end
+
 vim.keymap.set("n", "<C-=>", function()
-  change_scale_factor(1.1)
+  change_scale_factor(scaleFactorBase)
 end)
+
 vim.keymap.set("n", "<C-->", function()
-  change_scale_factor(1/1.1)
+  change_scale_factor(downScaleFactor)
 end)

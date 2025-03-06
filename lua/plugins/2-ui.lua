@@ -718,5 +718,18 @@ return {
     end,
   },
 
+  -- Lunar.nvim [LunarVim Theme]
+  -- https://github.com/lunarvim/lunar.nvim
+  {
+    "LunarVim/lunar.nvim",
+    event = "User LoadColorSchemes",
+    opts = {
+      dim_inactive = false,
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+      },
+    },
+  },
 
 } -- end of return

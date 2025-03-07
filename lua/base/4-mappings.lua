@@ -469,11 +469,11 @@ if is_available("mini.animate") then
 end
 
 -- shifted movement keys ----------------------------------------------------
-maps.n["<S-Down>"] = {
+maps.n["<S-D>"] = {
   function() vim.api.nvim_feedkeys("7j", "n", true) end,
   desc = "Fast move down",
 }
-maps.n["<S-Up>"] = {
+maps.n["<S-U>"] = {
   function() vim.api.nvim_feedkeys("7k", "n", true) end,
   desc = "Fast move up",
 }

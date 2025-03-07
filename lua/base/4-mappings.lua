@@ -128,14 +128,14 @@ maps.n["<Tab>"] = {
 
 -- BUG: We disable these mappings on termux by default because <C-y>
 --      is the keycode for scrolling, and remapping it would break it.
-if not is_android then
+-- if not is_android then
   -- only useful when the option clipboard is commented on ./1-options.lua
-  maps.n["<C-y>"] = { '"+y<esc>', desc = "Copy to cliboard" }
-  maps.x["<C-y>"] = { '"+y<esc>', desc = "Copy to cliboard" }
-  maps.n["<C-d>"] = { '"+y<esc>dd', desc = "Copy to clipboard and delete line" }
-  maps.x["<C-d>"] = { '"+y<esc>dd', desc = "Copy to clipboard and delete line" }
-  maps.n["<C-p>"] = { '"+p<esc>', desc = "Paste from clipboard" }
-end
+  -- maps.n["<C-y>"] = { '"+y<esc>', desc = "Copy to cliboard" }
+  -- maps.x["<C-y>"] = { '"+y<esc>', desc = "Copy to cliboard" }
+  -- maps.n["<C-d>"] = { '"+y<esc>dd', desc = "Copy to clipboard and delete line" }
+  -- maps.x["<C-d>"] = { '"+y<esc>dd', desc = "Copy to clipboard and delete line" }
+  -- maps.n["<C-p>"] = { '"+p<esc>', desc = "Paste from clipboard" }
+-- end
 
 -- Make 'c' key not copy to clipboard when changing a character.
 maps.n["c"] = { '"_c', desc = "Change without yanking" }

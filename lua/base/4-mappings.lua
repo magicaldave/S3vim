@@ -622,12 +622,12 @@ if is_available("gitsigns.nvim") then
   }
 end
 -- git fugitive
-if is_available("vim-fugitive") then
-  maps.n["<leader>gP"] = {
-    function() vim.cmd(":GBrowse") end,
-    desc = "Open in github ",
-  }
-end
+-- if is_available("vim-fugitive") then
+--   maps.n["<leader>gP"] = {
+--     function() vim.cmd(":GBrowse") end,
+--     desc = "Open in github ",
+--   }
+-- end
 -- git client
 if vim.fn.executable "lazygit" == 1 then -- if lazygit exists, show it
   maps.n["<leader>gg"] = {
@@ -1222,16 +1222,6 @@ if is_available("nvim-coverage") then
     desc = "Coverage signs (toggle)",
   }
 end
-
--- Extra - nodejs testing commands
-maps.n["<leader>Ta"] = {
-  function() vim.cmd("TestNodejs") end,
-  desc = "All",
-}
-maps.n["<leader>Te"] = {
-  function() vim.cmd("TestNodejsE2e") end,
-  desc = "E2e",
-}
 
 -- nvim-ufo [code folding] --------------------------------------------------
 if is_available("nvim-ufo") then

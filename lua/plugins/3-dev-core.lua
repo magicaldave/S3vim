@@ -77,8 +77,14 @@ return {
             ["ik"] = { query = "@block.inner", desc = "inside block" },
             ["ac"] = { query = "@class.outer", desc = "around class" },
             ["ic"] = { query = "@class.inner", desc = "inside class" },
-            ["a?"] = { query = "@conditional.outer", desc = "around conditional" },
-            ["i?"] = { query = "@conditional.inner", desc = "inside conditional" },
+            ["a?"] = {
+              query = "@conditional.outer",
+              desc = "around conditional",
+            },
+            ["i?"] = {
+              query = "@conditional.inner",
+              desc = "inside conditional",
+            },
             ["af"] = { query = "@function.outer", desc = "around function " },
             ["if"] = { query = "@function.inner", desc = "inside function " },
             ["al"] = { query = "@loop.outer", desc = "around loop" },
@@ -92,23 +98,44 @@ return {
           set_jumps = true,
           goto_next_start = {
             ["]k"] = { query = "@block.outer", desc = "Next block start" },
-            ["]f"] = { query = "@function.outer", desc = "Next function start" },
-            ["]a"] = { query = "@parameter.inner", desc = "Next parameter start" },
+            ["]f"] = {
+              query = "@function.outer",
+              desc = "Next function start",
+            },
+            ["]a"] = {
+              query = "@parameter.inner",
+              desc = "Next parameter start",
+            },
           },
           goto_next_end = {
             ["]K"] = { query = "@block.outer", desc = "Next block end" },
             ["]F"] = { query = "@function.outer", desc = "Next function end" },
-            ["]A"] = { query = "@parameter.inner", desc = "Next parameter end" },
+            ["]A"] = {
+              query = "@parameter.inner",
+              desc = "Next parameter end",
+            },
           },
           goto_previous_start = {
             ["[k"] = { query = "@block.outer", desc = "Previous block start" },
-            ["[f"] = { query = "@function.outer", desc = "Previous function start" },
-            ["[a"] = { query = "@parameter.inner", desc = "Previous parameter start" },
+            ["[f"] = {
+              query = "@function.outer",
+              desc = "Previous function start",
+            },
+            ["[a"] = {
+              query = "@parameter.inner",
+              desc = "Previous parameter start",
+            },
           },
           goto_previous_end = {
             ["[K"] = { query = "@block.outer", desc = "Previous block end" },
-            ["[F"] = { query = "@function.outer", desc = "Previous function end" },
-            ["[A"] = { query = "@parameter.inner", desc = "Previous parameter end" },
+            ["[F"] = {
+              query = "@function.outer",
+              desc = "Previous function end",
+            },
+            ["[A"] = {
+              query = "@parameter.inner",
+              desc = "Previous parameter end",
+            },
           },
         },
         swap = {
@@ -116,12 +143,21 @@ return {
           swap_next = {
             [">K"] = { query = "@block.outer", desc = "Swap next block" },
             [">F"] = { query = "@function.outer", desc = "Swap next function" },
-            [">A"] = { query = "@parameter.inner", desc = "Swap next parameter" },
+            [">A"] = {
+              query = "@parameter.inner",
+              desc = "Swap next parameter",
+            },
           },
           swap_previous = {
             ["<K"] = { query = "@block.outer", desc = "Swap previous block" },
-            ["<F"] = { query = "@function.outer", desc = "Swap previous function" },
-            ["<A"] = { query = "@parameter.inner", desc = "Swap previous parameter" },
+            ["<F"] = {
+              query = "@function.outer",
+              desc = "Swap previous function",
+            },
+            ["<A"] = {
+              query = "@parameter.inner",
+              desc = "Swap previous parameter",
+            },
           },
         },
       },
@@ -136,7 +172,7 @@ return {
   -- https://github.com/folke/ts-comments.nvim
   -- This plugin can be safely removed after nvim 0.11 is released.
   {
-   "folke/ts-comments.nvim",
+    "folke/ts-comments.nvim",
     event = "User BaseFile",
     enabled = vim.fn.has("nvim-0.10.0") == 1,
     opts = {},
@@ -146,9 +182,9 @@ return {
   --  https://github.com/MeanderingProgrammer/render-markdown.nvim
   --  While on normal mode, markdown files will display highlights.
   {
-    'MeanderingProgrammer/render-markdown.nvim',
+    "MeanderingProgrammer/render-markdown.nvim",
     ft = { "markdown" },
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
       heading = {
         sign = false,
@@ -157,14 +193,14 @@ return {
       },
       code = {
         sign = false,
-        width = 'block', -- use 'language' if colorcolumn is important for you.
+        width = "block", -- use 'language' if colorcolumn is important for you.
         right_pad = 1,
       },
       dash = {
-        width = 79
+        width = 79,
       },
       pipe_table = {
-        style = 'full', -- use 'normal' if colorcolumn is important for you.
+        style = "full", -- use 'normal' if colorcolumn is important for you.
       },
     },
   },
@@ -263,11 +299,13 @@ return {
       ui = {
         icons = {
           package_installed = require("base.utils").get_icon("MasonInstalled"),
-          package_uninstalled = require("base.utils").get_icon("MasonUninstalled"),
+          package_uninstalled = require("base.utils").get_icon(
+            "MasonUninstalled"
+          ),
           package_pending = require("base.utils").get_icon("MasonPending"),
         },
       },
-    }
+    },
   },
 
   --  Schema Store [mason extra schemas]
@@ -286,30 +324,30 @@ return {
     event = "User BaseFile",
     dependencies = {
       "williamboman/mason.nvim",
-      "zeioth/none-ls-external-sources.nvim"
+      "zeioth/none-ls-external-sources.nvim",
     },
     opts = {
       -- Here you can add support for sources not oficially suppored by none-ls.
       external_sources = {
         -- diagnostics
-        'none-ls-external-sources.diagnostics.cpplint',
-        'none-ls-external-sources.diagnostics.flake8',
-        'none-ls-external-sources.diagnostics.luacheck',
-        'none-ls-external-sources.diagnostics.psalm',
-        'none-ls-external-sources.diagnostics.yamllint',
+        "none-ls-external-sources.diagnostics.cpplint",
+        "none-ls-external-sources.diagnostics.flake8",
+        "none-ls-external-sources.diagnostics.luacheck",
+        "none-ls-external-sources.diagnostics.psalm",
+        "none-ls-external-sources.diagnostics.yamllint",
 
         -- formatting
-        'none-ls-external-sources.formatting.autopep8',
-        'none-ls-external-sources.formatting.beautysh',
-        'none-ls-external-sources.formatting.easy-coding-standard',
-        'none-ls-external-sources.formatting.eslint',
-        'none-ls-external-sources.formatting.eslint_d',
-        'none-ls-external-sources.formatting.jq',
-        'none-ls-external-sources.formatting.latexindent',
-        'none-ls-external-sources.formatting.reformat_gherkin',
-        'none-ls-external-sources.formatting.rustfmt',
-        'none-ls-external-sources.formatting.standardrb',
-        'none-ls-external-sources.formatting.yq',
+        "none-ls-external-sources.formatting.autopep8",
+        "none-ls-external-sources.formatting.beautysh",
+        "none-ls-external-sources.formatting.easy-coding-standard",
+        "none-ls-external-sources.formatting.eslint",
+        "none-ls-external-sources.formatting.eslint_d",
+        "none-ls-external-sources.formatting.jq",
+        "none-ls-external-sources.formatting.latexindent",
+        "none-ls-external-sources.formatting.reformat_gherkin",
+        "none-ls-external-sources.formatting.rustfmt",
+        "none-ls-external-sources.formatting.standardrb",
+        "none-ls-external-sources.formatting.yq",
       },
     },
   },
@@ -330,7 +368,7 @@ return {
 
       -- Attach the user lsp mappings to every none-ls client.
       return { on_attach = utils_lsp.apply_user_lsp_mappings }
-    end
+    end,
   },
 
   --  garbage-day.nvim [lsp garbage collector]
@@ -341,14 +379,17 @@ return {
     opts = {
       aggressive_mode = false,
       excluded_lsp_clients = {
-        "null-ls", "jdtls", "marksman", "lua_ls"
+        "null-ls",
+        "jdtls",
+        "marksman",
+        "lua_ls",
       },
       grace_period = (60 * 15),
       wakeup_delay = 3000,
       notifications = false,
       retries = 3,
       timeout = 1000,
-    }
+    },
   },
 
   --  lazy.nvim [lua lsp for nvim plugins]
@@ -363,103 +404,133 @@ return {
         -- in 'path', write the name of the plugin directory.
         -- in 'mods', write the word you use to require the module.
         -- in 'words' write words that trigger loading a lazydev path (optionally).
-        { path = "lazy.nvim", mods = { "lazy" } },
-        { path = "yazi.nvim", mods = { "yazi" } },
-        { path = "project.nvim", mods = { "project_nvim", "telescope" } },
-        { path = "trim.nvim", mods = { "trim" } },
-        { path = "stickybuf.nvim", mods = { "stickybuf" } },
-        { path = "mini.bufremove", mods = { "mini.bufremove" } },
-        { path = "smart-splits.nvim", mods = { "smart-splits" } },
-        { path = "better-scape.nvim", mods = { "better_escape" } },
-        { path = "toggleterm.nvim", mods = { "toggleterm" } },
+        { path = "lazy.nvim",                   mods = { "lazy" } },
+        { path = "yazi.nvim",                   mods = { "yazi" } },
+        { path = "project.nvim",                mods = { "project_nvim", "telescope" } },
+        { path = "trim.nvim",                   mods = { "trim" } },
+        { path = "stickybuf.nvim",              mods = { "stickybuf" } },
+        { path = "mini.bufremove",              mods = { "mini.bufremove" } },
+        { path = "smart-splits.nvim",           mods = { "smart-splits" } },
+        { path = "better-scape.nvim",           mods = { "better_escape" } },
+        { path = "toggleterm.nvim",             mods = { "toggleterm" } },
         { path = "neovim-session-manager.nvim", mods = { "session_manager" } },
-        { path = "nvim-spectre", mods = { "spectre" } },
-        { path = "neo-tree.nvim", mods = { "neo-tree" } },
-        { path = "nui.nvim", mods = { "nui" } },
-        { path = "nvim-ufo", mods = { "ufo" } },
-        { path = "promise-async", mods = { "promise-async" } },
-        { path = "nvim-neoclip.lua", mods = { "neoclip", "telescope" } },
-        { path = "zen-mode.nvim", mods = { "zen-mode" } },
-        { path = "vim-suda", mods = { "suda" } }, -- has vimscript
-        { path = "vim-matchup", mods = { "matchup", "match-up", "treesitter-matchup" } }, -- has vimscript
-        { path = "hop.nvim", mods = { "hop", "hop-treesitter", "hop-yank" } },
-        { path = "nvim-autopairs", mods = { "nvim-autopairs" } },
-        { path = "lsp_signature", mods = { "lsp_signature" } },
-        { path = "nvim-lightbulb", mods = { "nvim-lightbulb" } },
-        { path = "hot-reload.nvim", mods = { "hot-reload" } },
+        { path = "nvim-spectre",                mods = { "spectre" } },
+        { path = "neo-tree.nvim",               mods = { "neo-tree" } },
+        { path = "nui.nvim",                    mods = { "nui" } },
+        { path = "nvim-ufo",                    mods = { "ufo" } },
+        { path = "promise-async",               mods = { "promise-async" } },
+        { path = "nvim-neoclip.lua",            mods = { "neoclip", "telescope" } },
+        { path = "zen-mode.nvim",               mods = { "zen-mode" } },
+        { path = "vim-suda",                    mods = { "suda" } }, -- has vimscript
+        {
+          path = "vim-matchup",
+          mods = { "matchup", "match-up", "treesitter-matchup" },
+        }, -- has vimscript
+        { path = "hop.nvim",          mods = { "hop", "hop-treesitter", "hop-yank" } },
+        { path = "nvim-autopairs",    mods = { "nvim-autopairs" } },
+        { path = "lsp_signature",     mods = { "lsp_signature" } },
+        { path = "nvim-lightbulb",    mods = { "nvim-lightbulb" } },
+        { path = "hot-reload.nvim",   mods = { "hot-reload" } },
         { path = "distroupdate.nvim", mods = { "distroupdate" } },
 
-        { path = "alpha-nvim", mods = { "alpha" } },
-        { path = "nvim-notify", mods = { "notify" } },
-        { path = "mini.indentscope", mods = { "mini.indentscope" } },
-        { path = "heirline-components.nvim", mods = { "heirline-components" } },
-        { path = "telescope.nvim", mods = { "telescope" } },
-        { path = "telescope-undo.nvim", mods = { "telescope", "telescope-undo" } },
-        { path = "telescope-fzf-native.nvim", mods = { "telescope", "fzf_lib"  } },
-        { path = "dressing.nvim", mods = { "dressing" } },
-        { path = "noice.nvim", mods = { "noice", "telescope" } },
-        { path = "nvim-web-devicons", mods = { "nvim-web-devicons" } },
-        { path = "lspkind.nvim", mods = { "lspkind" } },
-        { path = "nvim-scrollbar", mods = { "scrollbar" } },
-        { path = "mini.animate", mods = { "mini.animate" } },
+        { path = "alpha-nvim",        mods = { "alpha" } },
+        { path = "nvim-notify",       mods = { "notify" } },
+        { path = "mini.indentscope",  mods = { "mini.indentscope" } },
+        {
+          path = "heirline-components.nvim",
+          mods = { "heirline-components" },
+        },
+        { path = "telescope.nvim",      mods = { "telescope" } },
+        {
+          path = "telescope-undo.nvim",
+          mods = { "telescope", "telescope-undo" },
+        },
+        {
+          path = "telescope-fzf-native.nvim",
+          mods = { "telescope", "fzf_lib" },
+        },
+        { path = "dressing.nvim",       mods = { "dressing" } },
+        { path = "noice.nvim",          mods = { "noice", "telescope" } },
+        { path = "nvim-web-devicons",   mods = { "nvim-web-devicons" } },
+        { path = "lspkind.nvim",        mods = { "lspkind" } },
+        { path = "nvim-scrollbar",      mods = { "scrollbar" } },
+        { path = "mini.animate",        mods = { "mini.animate" } },
         { path = "highlight-undo.nvim", mods = { "highlight-undo" } },
-        { path = "which-key.nvim", mods = { "which-key" } },
+        { path = "which-key.nvim",      mods = { "which-key" } },
 
-        { path = "nvim-treesitter", mods = { "nvim-treesitter" } },
-        { path = "nvim-ts-autotag", mods = { "nvim-ts-autotag" } },
-        { path = "nvim-treesitter-textobjects", mods = { "nvim-treesitter", "nvim-treesitter-textobjects" } },
-        { path = "ts-comments.nvim", mods = { "ts-comments" } },
-        { path = "markdown.nvim", mods = { "render-markdown" } },
+        { path = "nvim-treesitter",     mods = { "nvim-treesitter" } },
+        { path = "nvim-ts-autotag",     mods = { "nvim-ts-autotag" } },
+        {
+          path = "nvim-treesitter-textobjects",
+          mods = { "nvim-treesitter", "nvim-treesitter-textobjects" },
+        },
+        { path = "ts-comments.nvim",      mods = { "ts-comments" } },
+        { path = "markdown.nvim",         mods = { "render-markdown" } },
         { path = "nvim-highlight-colors", mods = { "nvim-highlight-colors" } },
-        { path = "nvim-lspconfig", mods = { "lspconfig" } },
-        { path = "mason-lspconfig.nvim", mods = { "mason-lspconfig" } },
-        { path = "mason.nvim", mods = { "mason", "mason-core", "mason-registry", "mason-vendor" } },
-        { path = "mason-extra-cmds", mods = { "masonextracmds" } },
-        { path = "SchemaStore.nvim", mods = { "schemastore" } },
-        { path = "none-ls-autoload.nvim", mods = { "none-ls-autoload" } },
-        { path = "none-ls.nvim", mods = { "null-ls" } },
-        { path = "lazydev.nvim", mods = { "" } },
-        { path = "garbage-day.nvim", mods = { "garbage-day" } },
-        { path = "nvim-cmp", mods = { "cmp" } },
-        { path = "cmp_luasnip", mods = { "cmp_luasnip" } },
-        { path = "cmp-buffer", mods = { "cmp_buffer" } },
-        { path = "cmp-path", mods = { "cmp_path" } },
-        { path = "cmp-nvim-lsp", mods = { "cmp_nvim_lsp" } },
+        { path = "nvim-lspconfig",        mods = { "lspconfig" } },
+        { path = "mason-lspconfig.nvim",  mods = { "mason-lspconfig" } },
+        {
+          path = "mason.nvim",
+          mods = { "mason", "mason-core", "mason-registry", "mason-vendor" },
+        },
+        { path = "mason-extra-cmds",       mods = { "masonextracmds" } },
+        { path = "SchemaStore.nvim",       mods = { "schemastore" } },
+        { path = "none-ls-autoload.nvim",  mods = { "none-ls-autoload" } },
+        { path = "none-ls.nvim",           mods = { "null-ls" } },
+        { path = "lazydev.nvim",           mods = { "" } },
+        { path = "garbage-day.nvim",       mods = { "garbage-day" } },
+        { path = "nvim-cmp",               mods = { "cmp" } },
+        { path = "cmp_luasnip",            mods = { "cmp_luasnip" } },
+        { path = "cmp-buffer",             mods = { "cmp_buffer" } },
+        { path = "cmp-path",               mods = { "cmp_path" } },
+        { path = "cmp-nvim-lsp",           mods = { "cmp_nvim_lsp" } },
 
-        { path = "LuaSnip", mods = { "luasnip" } },
-        { path = "friendly-snippets", mods = { "snippets" } }, -- has vimscript
-        { path = "NormalSnippets", mods = { "snippets" } }, -- has vimscript
+        { path = "LuaSnip",                mods = { "luasnip" } },
+        { path = "friendly-snippets",      mods = { "snippets" } }, -- has vimscript
+        { path = "NormalSnippets",         mods = { "snippets" } }, -- has vimscript
         { path = "telescope-luasnip.nvim", mods = { "telescop" } },
-        { path = "gitsigns.nvim", mods = { "gitsigns" } },
-        { path = "aerial.nvim", mods = { "aerial", "telescope", "lualine", "resession" } },
-        { path = "litee.nvim", mods = { "litee" } },
-        { path = "litee-calltree.nvim", mods = { "litee" } },
-        { path = "dooku.nvim", mods = { "dooku" } },
+        { path = "gitsigns.nvim",          mods = { "gitsigns" } },
+        {
+          path = "aerial.nvim",
+          mods = { "aerial", "telescope", "lualine", "resession" },
+        },
+        { path = "litee.nvim",            mods = { "litee" } },
+        { path = "litee-calltree.nvim",   mods = { "litee" } },
+        { path = "dooku.nvim",            mods = { "dooku" } },
         { path = "markdown-preview.nvim", mods = { "mkdp" } }, -- has vimscript
-        { path = "markmap.nvim", mods = { "markmap" } },
+        { path = "markmap.nvim",          mods = { "markmap" } },
         -- { path = "neural", mods = { "neural" } },
-        { path = "guess-indent.nvim", mods = { "guess-indent" } },
-        { path = "compiler.nvim", mods = { "compiler" } },
-        { path = "overseer.nvim", mods = { "overseer", "lualine", "neotest", "resession", "cmp_overseer" } },
-        { path = "nvim-dap", mods = { "dap" } },
-        { path = "nvim-nio", mods = { "nio" } },
-        { path = "nvim-dap-ui", mods = { "dapui" } },
-        { path = "cmp-dap", mods = { "cmp_dap" } },
-        { path = "mason-nvim-dap.nvim", mods = { "mason-nvim-dap" } },
+        { path = "guess-indent.nvim",     mods = { "guess-indent" } },
+        { path = "compiler.nvim",         mods = { "compiler" } },
+        {
+          path = "overseer.nvim",
+          mods = {
+            "overseer",
+            "lualine",
+            "neotest",
+            "resession",
+            "cmp_overseer",
+          },
+        },
+        { path = "nvim-dap",                   mods = { "dap" } },
+        { path = "nvim-nio",                   mods = { "nio" } },
+        { path = "nvim-dap-ui",                mods = { "dapui" } },
+        { path = "cmp-dap",                    mods = { "cmp_dap" } },
+        { path = "mason-nvim-dap.nvim",        mods = { "mason-nvim-dap" } },
         { path = "one-small-step-for-vimkind", mods = { "osv" } },
-        { path = "neotest-dart", mods = { "neotest-dart" } },
-        { path = "neotest-dotnet", mods = { "neotest-dotnet" } },
-        { path = "neotest-elixir", mods = { "neotest-elixir" } },
-        { path = "neotest-golang", mods = { "neotest-golang" } },
-        { path = "neotest-java", mods = { "neotest-java" } },
-        { path = "neotest-jest", mods = { "neotest-jest" } },
-        { path = "neotest-phpunit", mods = { "neotest-phpunit" } },
-        { path = "neotest-python", mods = { "neotest-python" } },
-        { path = "neotest-rust", mods = { "neotest-rust" } },
-        { path = "neotest-zig", mods = { "neotest-zig" } },
-        { path = "nvim-coverage.nvim", mods = { "coverage" } },
-        { path = "gutentags_plus", mods = { "gutentags_plus" } }, -- has vimscript
-        { path = "vim-gutentags", mods = { "vim-gutentags" } }, -- has vimscript
+        -- { path = "neotest-dart", mods = { "neotest-dart" } },
+        -- { path = "neotest-dotnet", mods = { "neotest-dotnet" } },
+        -- { path = "neotest-elixir", mods = { "neotest-elixir" } },
+        -- { path = "neotest-golang", mods = { "neotest-golang" } },
+        -- { path = "neotest-java", mods = { "neotest-java" } },
+        -- { path = "neotest-jest", mods = { "neotest-jest" } },
+        -- { path = "neotest-phpunit", mods = { "neotest-phpunit" } },
+        { path = "neotest-python",             mods = { "neotest-python" } },
+        { path = "neotest-rust",               mods = { "neotest-rust" } },
+        -- { path = "neotest-zig", mods = { "neotest-zig" } },
+        { path = "nvim-coverage.nvim",         mods = { "coverage" } },
+        { path = "gutentags_plus",             mods = { "gutentags_plus" } }, -- has vimscript
+        { path = "vim-gutentags",              mods = { "vim-gutentags" } }, -- has vimscript
 
         -- To make it work exactly like neodev, you can add all plugins
         -- without conditions instead like this but it will load slower
@@ -467,7 +538,7 @@ return {
         -- vim.fn.stdpath "data" .. "/lazy",
 
         -- You can also add libs.
-        { path = "luvit-meta/library", mods = { "vim%.uv" } },
+        { path = "luvit-meta/library",         mods = { "vim%.uv" } },
       }
     end,
     specs = { { "Bilal2453/luvit-meta", lazy = true } },
@@ -483,7 +554,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lsp",
-      "onsails/lspkind.nvim"
+      "onsails/lspkind.nvim",
     },
     event = "InsertEnter",
     opts = function()
@@ -498,13 +569,19 @@ return {
         winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
       }
       local cmp_config_window = (
-        vim.g.lsp_round_borders_enabled and cmp.config.window.bordered(border_opts)
+        vim.g.lsp_round_borders_enabled
+        and cmp.config.window.bordered(border_opts)
       ) or cmp.config.window
 
       -- helper
       local function has_words_before()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+        return col ~= 0
+            and vim.api
+            .nvim_buf_get_lines(0, line - 1, line, true)[1]
+            :sub(col, col)
+            :match("%s")
+            == nil
       end
 
       return {
@@ -512,7 +589,9 @@ return {
           local is_prompt = vim.bo.buftype == "prompt"
           local is_dap_prompt = utils.is_available("cmp-dap")
               and vim.tbl_contains(
-                { "dap-repl", "dapui_watches", "dapui_hover" }, vim.bo.filetype)
+                { "dap-repl", "dapui_watches", "dapui_hover" },
+                vim.bo.filetype
+              )
           if is_prompt and not is_dap_prompt then
             return false
           else
@@ -522,7 +601,9 @@ return {
         preselect = cmp.PreselectMode.None,
         formatting = {
           fields = { "kind", "abbr", "menu" },
-          format = (lspkind_loaded and lspkind.cmp_format(utils.get_plugin_opts("lspkind.nvim"))) or nil
+          format = (lspkind_loaded and lspkind.cmp_format(
+            utils.get_plugin_opts("lspkind.nvim")
+          )) or nil,
         },
         snippet = {
           expand = function(args) luasnip.lsp_expand(args.body) end,
@@ -544,57 +625,57 @@ return {
           documentation = cmp_config_window,
         },
         mapping = {
-          ["<PageUp>"] = cmp.mapping.select_prev_item {
+          ["<PageUp>"] = cmp.mapping.select_prev_item({
             behavior = cmp.SelectBehavior.Select,
             count = 8,
-          },
-          ["<PageDown>"] = cmp.mapping.select_next_item {
+          }),
+          ["<PageDown>"] = cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Select,
             count = 8,
-          },
-          ["<C-PageUp>"] = cmp.mapping.select_prev_item {
+          }),
+          ["<C-PageUp>"] = cmp.mapping.select_prev_item({
             behavior = cmp.SelectBehavior.Select,
             count = 16,
-          },
-          ["<C-PageDown>"] = cmp.mapping.select_next_item {
+          }),
+          ["<C-PageDown>"] = cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Select,
             count = 16,
-          },
-          ["<S-PageUp>"] = cmp.mapping.select_prev_item {
+          }),
+          ["<S-PageUp>"] = cmp.mapping.select_prev_item({
             behavior = cmp.SelectBehavior.Select,
             count = 16,
-          },
-          ["<S-PageDown>"] = cmp.mapping.select_next_item {
+          }),
+          ["<S-PageDown>"] = cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Select,
             count = 16,
-          },
-          ["<Up>"] = cmp.mapping.select_prev_item {
+          }),
+          ["<Up>"] = cmp.mapping.select_prev_item({
             behavior = cmp.SelectBehavior.Select,
-          },
-          ["<Down>"] = cmp.mapping.select_next_item {
+          }),
+          ["<Down>"] = cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Select,
-          },
-          ["<C-p>"] = cmp.mapping.select_prev_item {
+          }),
+          ["<C-p>"] = cmp.mapping.select_prev_item({
             behavior = cmp.SelectBehavior.Insert,
-          },
-          ["<C-n>"] = cmp.mapping.select_next_item {
+          }),
+          ["<C-n>"] = cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Insert,
-          },
-          ["<C-k>"] = cmp.mapping.select_prev_item {
+          }),
+          ["<C-k>"] = cmp.mapping.select_prev_item({
             behavior = cmp.SelectBehavior.Insert,
-          },
-          ["<C-j>"] = cmp.mapping.select_next_item {
+          }),
+          ["<C-j>"] = cmp.mapping.select_next_item({
             behavior = cmp.SelectBehavior.Insert,
-          },
+          }),
           ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
           ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
           ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
           ["<C-y>"] = cmp.config.disable,
-          ["<C-e>"] = cmp.mapping {
+          ["<C-e>"] = cmp.mapping({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
-          },
-          ["<CR>"] = cmp.mapping.confirm { select = false },
+          }),
+          ["<CR>"] = cmp.mapping.confirm({ select = false }),
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -616,15 +697,14 @@ return {
             end
           end, { "i", "s" }),
         },
-        sources = cmp.config.sources {
+        sources = cmp.config.sources({
           { name = "nvim_lsp", priority = 1000 },
           { name = "lazydev",  priority = 850 },
           { name = "luasnip",  priority = 750 },
           { name = "buffer",   priority = 500 },
           { name = "path",     priority = 250 },
-        },
+        }),
       }
     end,
   },
-
 }
